@@ -1,0 +1,15 @@
+<%= form_for :email, url: emails_path , method: :create do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_area :email %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,6 +1,5 @@
 class ScrapController < ApplicationController
-	include ApplicationHelper
-	
+		
 	def new
 	end
 

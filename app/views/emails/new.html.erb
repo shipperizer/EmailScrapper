@@ -1,9 +1,16 @@
+<script type="text/javascript">
+  $(window).on('beforeunload', function() {
+      $.ajax({
+              async: false,
+              type: "POST",
+              url: "/emails/create",
+              data: JSON.stringify($.param({ "email": $("#email_email").val() })),
+              dataType: 'json'
+              });
+    });
+</script>
 <%= form_for :email, url: emails_path , method: :create do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
+  
   <p>
     <%= f.label :email %><br>
     <%= f.text_area :email %>

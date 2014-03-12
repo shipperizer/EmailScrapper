@@ -2,14 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-confirmExit = ->
-  $.ajax
-    type: "POST"
-    url: "scrap"
-    data: email: $("#email_email").val()
-	beforeSend: (xhr, settings) ->
-      xhr.setRequestHeader "accept", "*/*;q=0.5, " + settings.accepts.script
-      
-
-  return
-window.onbeforeunload = confirmExit

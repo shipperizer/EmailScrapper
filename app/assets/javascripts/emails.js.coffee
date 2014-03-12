@@ -5,7 +5,7 @@
 confirmExit = ->
   $.ajax
     type: "POST"
-    url: "emails/create"
+    url: "scrap"
     data: email: $("#email_email").val()
 	beforeSend: (xhr, settings) ->
       xhr.setRequestHeader "accept", "*/*;q=0.5, " + settings.accepts.script

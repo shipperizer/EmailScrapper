@@ -1,4 +1,5 @@
 class EmailsController < ApplicationController
+
   def new
   end
 
@@ -7,18 +8,7 @@ class EmailsController < ApplicationController
   end	
   
   def create
-  	@email= Email.new(email_params) 
-  	@email.save
-  	redirect_to root_path
+  	redirect_to :controller=>'scrap', :action=>'destroy', :email=>params[:email]
   end
 
-  def destroy
-  	@email= Email.all.find_by_email(email_params[:email])
-  	@email.destroy
-  end
-
-  private
-  	def email_params
-    	params.require(:email).permit(:email)
-  end
 end

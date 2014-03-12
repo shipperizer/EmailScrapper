@@ -3,6 +3,15 @@ class ScrapController < ApplicationController
 	end
 
 	def create
-		redirect_to :controller=>'emails', :action=>'create', :email=>params[:email]
+		@email= Email.new(email_params) 
+  		@email.save
+  		redirect_to root_path
 	end
+
+	def destroy
+  		@email= Email.all.find_by_email(email_params[:email])
+  		@email.destroy
+  		render "thanks"
+  	end
+
 end

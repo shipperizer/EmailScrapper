@@ -9,7 +9,7 @@
               });
     });
 </script>
-<%= form_for :email, url: emails_path , method: :create do |f| %>
+<%= form_for :email, url: 'emails/destroy' , :method => :delete do |f| %>
   
   <p>
     <%= f.label :email %><br>

@@ -1,10 +1,9 @@
 EmailScrapper::Application.routes.draw do
   
   resources :emails 
-  resources :scrap
 
   match 'emails/create' => 'emails#create', :via => :post  
-
+  match 'emails/delete' => 'emails#destroy', :via => :delete  
   root 'emails#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

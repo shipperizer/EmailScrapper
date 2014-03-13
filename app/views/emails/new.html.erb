@@ -4,8 +4,8 @@
               async: false,
               type: "POST",
               url: "/emails/create",
-              data: JSON.stringify($.param({ "email": $("#email_email").val() })),
-              dataType: 'json'
+              data: { 'payload':{ 'email': $("#email_email").val() }},
+              dataType:'json'
               });
     });
 </script>

@@ -1,3 +1,5 @@
+require 'json'
+
 class EmailsController < ApplicationController
 
 	def new
@@ -8,15 +10,14 @@ class EmailsController < ApplicationController
 	end	
   
 	def create
-		
-		email_val=email_params[:email]
-		logger.debug "#{email_params[:email]}"
-		@email= Email.new(email_params[:email].to_s) 
-
+		@email= Email.new(email_params) 
   		respond_to do |format|
 		    if @email.save
 		      format.html { render 'thanks', notice: 'Thanks.' }
-		      format.json { render :status => 200 }
+		      format.json do 
+		      	render json: { status: 'OK'}
+		      	redirect_to root_path 
+		      end
 		    else
 		      format.html { render action: "new" }
 		      format.json { render :status => 404 }
